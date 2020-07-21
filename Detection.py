@@ -2,16 +2,26 @@ import cv2
 import numpy as np
 import pandas as pd
   
-  # welcome screen
+#Welcome screen
 print("-"*96)
 print("Welcome  To Color Detection Project ".center(90))
 print("-"*96)
 print("\n\n")
-imgread=input("\t\tEnter Image File with Extension :")  #image input
+imgread=input("\t\tEnter Image File with Extension(jpg/jpeg/png) :")  #image input
+if imgread.endswith('.jpg'):
+    print("\n\n")
+    print("A New Window has been stated with your selected image file ".center(90))
+    print("Thank you!!!!".center(90))
+else:
+    print("\n\n")
+    print("Error !!Please choose correct file format")
 
-img=cv2.imread(imgread)  #open with opencv
+
+
+img=cv2.imread(imgread)  #open image  with opencv
 
 clicked = False
+
 r=g=b=xpos=ypos=0  # global variable for x y z set to 0
 
 index=["color","color_name","hex","Red","Green","Blue"]  #Reading csv file with panda for the upper coloumn
@@ -27,22 +37,22 @@ def getColorName(R,G,B): #calculate minimum distance from all colors and get the
     return cname
 
 def get_corr(event, x,y,flags,param):#get x y coordinates of mouse
-    if event == cv2.EVENT_LBUTTONDBLCLK:
+    if event==cv2.EVENT_LBUTTONDBLCLK:
         global b,g,r,xpos,ypos,clicked
         clicked = True
         xpos = x
         ypos = y
         b,g,r = img[y,x]
-        g = int(g)
-        r = int(r)
-        b = int(b)     
+        r=int(r)
+        g=int(g)
+        b=int(b)     
 
 cv2.namedWindow('image')
 cv2.setMouseCallback('image',get_corr)
 while(1):
     cv2.imshow("image",img)
     if (clicked): 
-        cv2.rectangle(img,(10,10), (700,60), (b,g,r), -1)
+        cv2.rectangle(img,(10,10),(700,60),(b,g,r),-1)
 
         text=getColorName(r,g,b)+' | Red='+ str(r) +' Green='+ str(g) +' Blue='+ str(b)
         
