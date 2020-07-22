@@ -7,7 +7,7 @@ print("-"*96)
 print("Welcome  To Color Detection Project ".center(90))
 print("-"*96)
 print("\n\n")
-imgread=input("\t\tEnter Image File with Extension(jpg/jpeg/png) :")  #image input
+imgread=input("\t\tEnter Image File with extension :")  #image input
 if imgread.endswith('.jpg'):
     print("\n\n")
     print("A New Window has been stated with your selected image file ".center(90))
@@ -68,6 +68,9 @@ while(1):
     
 cv2.destroyAllWindows()
 
+
+
+#To pass with cmd with argparse
 """import argparse
 ap = argparse.ArgumentParser()
 ap.add_argument('-i', '--image', required=True, help="Image Path")
