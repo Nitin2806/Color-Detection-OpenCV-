@@ -12,6 +12,10 @@ if imgread.endswith('.jpg'):
     print("\n\n")
     print("A New Window has been started with your selected image file ".center(90))
     print("Thank you!!!!".center(90))
+elif imgread.endswith('.png'):
+    print("\n\n")
+    print("A New Window has been started with your selected image file ".center(90))
+    print("Thank you!!!!".center(90))
 else:
     print("\n\n")
     print("Error !!Please choose correct file format")
