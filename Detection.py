@@ -10,7 +10,7 @@ print("\n\n")
 imgread=input("\t\tEnter Image File with extension :")  #image input
 if imgread.endswith('.jpg'):
     print("\n\n")
-    print("A New Window has been stated with your selected image file ".center(90))
+    print("A New Window has been started with your selected image file ".center(90))
     print("Thank you!!!!".center(90))
 else:
     print("\n\n")
